@@ -7,13 +7,20 @@ import EditBookPage from "../pages/EditBookPage";
 import SignupPage from "../pages/SignupPage";
 import SigninPage from "../pages/Signinpage";
 import DashboardPage from "../pages/DashboardPage";
+import MainLoayout from "../Layout/MainLoayout";
 export const routes = createBrowserRouter([
-  { path: "/", element: <HomePage /> },
-  { path: "/all-books", element: <AllBooksPage /> },
-  { path: "/book/:id", element: <BookDetailsPage /> },
-  { path: "/add-new-Book", element: <AddNewBookPage /> },
-  { path: "/book/edit/:id", element: <EditBookPage /> },
-  { path: "/dashboard", element: <DashboardPage /> },
-  { path: "/auth/login", element: <SigninPage /> },
-  { path: "/auth/sign-up", element: <SignupPage /> },
+  {
+    path: "/",
+    element: <MainLoayout />,
+    children: [
+      { path: "/", element: <HomePage /> },
+      { path: "/all-books", element: <AllBooksPage /> },
+      { path: "/book/:id", element: <BookDetailsPage /> },
+      { path: "/add-new-Book", element: <AddNewBookPage /> },
+      { path: "/book/edit/:id", element: <EditBookPage /> },
+      { path: "/dashboard", element: <DashboardPage /> },
+      { path: "/auth/login", element: <SigninPage /> },
+      { path: "/auth/sign-up", element: <SignupPage /> },
+    ],
+  },
 ]);
