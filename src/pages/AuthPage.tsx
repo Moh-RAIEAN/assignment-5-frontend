@@ -1,14 +1,22 @@
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import loginFormImage from "../assets/loginformimg-min.jpg";
 
-export default function SigninPage() {
+type IAuthPageProps = {
+  isUsingForLogin?: boolean;
+};
+
+type IAuthCredentials = {
+  email: string;
+  password: string;
+};
+
+export default function AuthPage({ isUsingForLogin }: IAuthPageProps) {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  } = useForm<IAuthCredentials>();
+  const onSubmit: SubmitHandler<IAuthCredentials> = (data) => console.log(data);
 
   return (
     <div className="lg:grid lg:place-items-center p-3 min-h-screen  bg-base-200">
@@ -20,9 +28,11 @@ export default function SigninPage() {
             backgroundSize: "cover",
           }}
         >
-          <h1 className="text-4xl font-bold">Login now!</h1>
+          <h1 className="text-4xl font-bold">
+            {isUsingForLogin ? "Login" : "Signin"} now!
+          </h1>
           <p className="py-6">
-            You are required to login to continue in this site.
+            You are required to signin to continue in this site.
           </p>
         </div>
         <div className="card flex-shrink-0 w-full lg:max-w-xs lg:rounded-tl-none lg:rounded-bl-none sm:max-w-sm bg-base-100">
@@ -64,7 +74,9 @@ export default function SigninPage() {
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-outline">Login</button>
+              <button className="btn btn-outline">
+                {isUsingForLogin ? "Login" : "Singup"}
+              </button>
             </div>
           </form>
         </div>

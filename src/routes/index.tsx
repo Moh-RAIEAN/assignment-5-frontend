@@ -4,10 +4,9 @@ import AddNewBookPage from "../pages/AddNewBookPage";
 import AllBooksPage from "../pages/AllBooksPage";
 import BookDetailsPage from "../pages/BookDetailsPage";
 import EditBookPage from "../pages/EditBookPage";
-import SignupPage from "../pages/SignupPage";
-import SigninPage from "../pages/Signinpage";
 import DashboardPage from "../pages/DashboardPage";
 import MainLoayout from "../Layout/MainLoayout";
+import AuthPage from "../pages/AuthPage";
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -19,8 +18,8 @@ export const routes = createBrowserRouter([
       { path: "/add-new-Book", element: <AddNewBookPage /> },
       { path: "/book/edit/:id", element: <EditBookPage /> },
       { path: "/dashboard", element: <DashboardPage /> },
-      { path: "/auth/signin", element: <SigninPage /> },
-      { path: "/auth/sign-up", element: <SignupPage /> },
+      { path: "/auth/signin", element: <AuthPage isUsingForLogin={true} /> },
+      { path: "/auth/sign-up", element: <AuthPage /> },
     ],
   },
 ]);
