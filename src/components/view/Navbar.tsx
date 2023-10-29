@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 sticky top-0">
       <div className="flex-1">
         <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
       </div>
@@ -22,7 +22,7 @@ export default function Navbar() {
             <a>signup</a>
           </li>
           <li>
-            <div className="dropdown dropdown-end p-0">
+            <div className="dropdown dropdown-end dropdown-bottom p-0">
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-8 rounded-full">
                   <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
