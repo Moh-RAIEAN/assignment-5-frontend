@@ -1,3 +1,5 @@
+import Link from "../ui/Link";
+
 export default function Navbar() {
   return (
     <div className="navbar bg-base-100 sticky top-0">
@@ -7,19 +9,19 @@ export default function Navbar() {
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 items-center">
           <li>
-            <a>all books</a>
+            <Link navigateTo="/all-books">all books</Link>
           </li>
           <li>
-            <a>add books</a>
+            <Link navigateTo="/add-book">add books</Link>
           </li>
           <li>
-            <a>dashboard</a>
+            <Link navigateTo="/dashboard">dashboard</Link>
           </li>
           <li>
-            <a>signin</a>
+            <Link navigateTo="/auth/signin">signin</Link>
           </li>
           <li>
-            <a>signup</a>
+            <Link navigateTo="/auth/sign-up">signup</Link>
           </li>
           <li>
             <div className="dropdown dropdown-end dropdown-bottom p-0">

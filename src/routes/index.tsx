@@ -15,7 +15,7 @@ export const routes = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/all-books", element: <AllBooksPage /> },
       { path: "/book/:id", element: <BookDetailsPage /> },
-      { path: "/add-new-Book", element: <AddNewBookPage /> },
+      { path: "/add-book", element: <AddNewBookPage /> },
       { path: "/book/edit/:id", element: <EditBookPage /> },
       { path: "/dashboard", element: <DashboardPage /> },
       { path: "/auth/signin", element: <AuthPage isUsingForLogin={true} /> },
