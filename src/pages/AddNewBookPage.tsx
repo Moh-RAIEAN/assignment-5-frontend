@@ -1,3 +1,5 @@
+import BookForm from "../components/view/BookForm";
+
 export default function AddNewBookPage() {
-  return <div>AddNewBookPage</div>;
+  return <BookForm />;
 }

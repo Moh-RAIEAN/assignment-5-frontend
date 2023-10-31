@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Reviews from "../components/view/Reviews";
 
 export default function BookDetailsPage() {
+  const navigte = useNavigate();
   return (
     <div className="p-3">
       <div className="flex gap-3">
@@ -27,7 +29,12 @@ export default function BookDetailsPage() {
           <p>publication date</p>
           <div className="flex gap-3 mt-3">
             {" "}
-            <button className="btn btn-sm btn-outline">Edit</button>
+            <button
+              onClick={() => navigte("/book/edit/1")}
+              className="btn btn-sm btn-outline"
+            >
+              Edit
+            </button>
             <button className="btn btn-sm btn-error">Delete</button>
           </div>
         </div>

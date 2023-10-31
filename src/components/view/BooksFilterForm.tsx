@@ -34,7 +34,6 @@ export default function BooksFilterForm() {
             type="text"
             placeholder="Search books..."
             {...register("searchTerm")}
-            defaultValue={watch("searchTerm")}
             className="input input-bordered input-sm w-full join-item"
           />
           <button className="btn btn-sm btn-outline font-bold join-item">
@@ -46,7 +45,6 @@ export default function BooksFilterForm() {
             type="number"
             placeholder="Publication Year"
             {...register("publicationYear")}
-            defaultValue={watch("publicationYear")}
             className="input input-bordered input-sm w-full"
           />
           <select
