@@ -17,7 +17,7 @@ export default function Navbar() {
             <Link navigateTo="/add-book">add books</Link>
           </li>
           <li>
-            <Link navigateTo="/dashboard">dashboard</Link>
+            <Link navigateTo="/dashboard/">dashboard</Link>
           </li>
           <li>
             <Link navigateTo="/auth/signin">signin</Link>
