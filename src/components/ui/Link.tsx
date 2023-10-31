@@ -11,7 +11,7 @@ export default function Link({
   return (
     <NavLink
       to={navigateTo}
-      className={({ isActive }) => (isActive ? "font-extrabold" : "")}
+      className={({ isActive }) => (isActive ? "font-bold text-white" : "")}
     >
       {children}
     </NavLink>

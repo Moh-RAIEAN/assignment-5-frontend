@@ -2,9 +2,11 @@ import Link from "../ui/Link";
 
 export default function Navbar() {
   return (
-    <div className="navbar bg-base-100 sticky top-0">
+    <nav className="navbar bg-base-100 bg-opacity-60 backdrop-blur-lg sticky top-0 z-50 shadow-md">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <div className="btn btn-ghost normal-case text-xl">
+          <Link navigateTo="/">daisyUI</Link>
+        </div>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 items-center">
@@ -45,6 +47,6 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   );
 }
