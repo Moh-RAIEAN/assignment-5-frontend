@@ -1,6 +1,10 @@
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { logOutUser } from "../../redux/features/user/userSlice";
 import Link from "../ui/Link";
 
 export default function Navbar() {
+  const { user } = useAppSelector((state) => state.userSlice);
+  const dispatch = useAppDispatch();
   return (
     <nav className="navbar bg-base-100 bg-opacity-60 backdrop-blur-lg sticky top-0 z-50 shadow-md">
       <div className="flex-1">
@@ -37,10 +41,10 @@ export default function Navbar() {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a>username</a>
+                  <a>{user?.email}</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <a onClick={() => dispatch(logOutUser())}>Logout</a>
                 </li>
               </ul>
             </div>

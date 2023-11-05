@@ -1,23 +1,31 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import loginFormImage from "../assets/loginformimg-min.jpg";
+import { useLoginUserMutation } from "../redux/features/user/userApiSlice";
+import { useEffect } from "react";
+import { IAuthCredentials } from "../interfaces/globalInterFaces";
+import { useAppDispatch } from "../hooks/hooks";
+import { loginUser } from "../redux/features/user/userSlice";
 
 type IAuthPageProps = {
   isUsingForLogin?: boolean;
 };
 
-type IAuthCredentials = {
-  email: string;
-  password: string;
-};
-
 export default function AuthPage({ isUsingForLogin }: IAuthPageProps) {
+  const dispatch = useAppDispatch();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IAuthCredentials>();
-  const onSubmit: SubmitHandler<IAuthCredentials> = (data) => console.log(data);
-
+  const [login, { data, isLoading }] = useLoginUserMutation();
+  const handleLogin: SubmitHandler<IAuthCredentials> = (data) => {
+    login({ ...data });
+  };
+  useEffect(() => {
+    if (data?.success) {
+      dispatch(loginUser(data));
+    }
+  }, [data, dispatch]);
   return (
     <div className="lg:grid lg:place-items-center p-3 min-h-screen  bg-base-200">
       <div className="flex lg:flex-row justify-center">
@@ -39,7 +47,7 @@ export default function AuthPage({ isUsingForLogin }: IAuthPageProps) {
           <h1 className="font-bold text-2xl uppercase text-center pt-8 lg:hidden">
             pelase login
           </h1>
-          <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+          <form className="card-body" onSubmit={handleSubmit(handleLogin)}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -77,6 +85,7 @@ export default function AuthPage({ isUsingForLogin }: IAuthPageProps) {
               <button className="btn btn-outline">
                 {isUsingForLogin ? "Login" : "Singup"}
               </button>
+              {isLoading && <p className="text-red-500">loading</p>}
             </div>
           </form>
         </div>
